@@ -1,4 +1,4 @@
-import {GET_DATA, SORT_DATA} from "./action";
+import {FILTER_DATA, GET_DATA, SORT_DATA} from "./action";
 
 const initialState = {
     data: []
@@ -13,7 +13,6 @@ const reducer = (state = initialState, action) => {
         case SORT_DATA: {
             const data = [...state.data];
             data.sort((a, b) => {
-
                 if (a[action.field] > b[action.field]) {
                     return 1;
                 }
@@ -22,12 +21,11 @@ const reducer = (state = initialState, action) => {
                 }
                 return 0;
             })
-
             return {
                 data: data
             };
-
         }
+
         default: return state;
     }
 };
