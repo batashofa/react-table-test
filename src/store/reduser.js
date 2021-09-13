@@ -13,11 +13,11 @@ const reducer = (state = initialState, action) => {
         case SORT_DATA: {
             const data = [...state.data];
             data.sort((a, b) => {
-                if (a[action.field] > b[action.field]) {
-                    return 1;
+                if (a[action.field] > b[action.field] || a[action.field].state > b[action.field].state) {
+                    return action.reversed ? -1 : 1;
                 }
-                if (a[action.field] < b[action.field]) {
-                    return -1;
+                if (a[action.field] < b[action.field] || a[action.field].state < b[action.field].state) {
+                    return action.reversed ? 1 : -1;
                 }
                 return 0;
             })

@@ -1,12 +1,13 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import "./table.css"
 import {useDispatch, useSelector} from "react-redux";
-import { sortData} from "../store/action";
+import {sortData} from "../store/action";
 import Pagination from "./pagination/pagination";
 
 const Table = ({id}) => {
 
     const [page, setPage] = useState(1);
+    const [reversed, setReversed] = useState(false);
     const data = useSelector((state) => state.data);
     const dispatch = useDispatch()
 
@@ -15,10 +16,16 @@ const Table = ({id}) => {
         return data?.slice((page - 1) * 20, (page - 1) * 20 + 20);
     }
 
-    return (<>
+    return (
+        <>
             <table className="table">
-                <tr onClick={(e)=>dispatch(sortData(e.target.id))}>
-                    <th id="id">
+                <tr onClick={(e) => {
+                    setReversed(!reversed);
+                    dispatch(sortData(e.target.id, reversed))
+                }
+                }
+                >
+                    <th id="id" className={!reversed ? "arrowDown" : "arrowUp"}>
                         id
                     </th>
                     <th id="firstName">
@@ -38,7 +45,7 @@ const Table = ({id}) => {
                     </th>
                 </tr>
                 {dataPerPage(page).map((item, index) =>
-                    <tr className="tr-info" onClick={()=>id(index)} key={index}>
+                    <tr className="tr-info" onClick={() => id(index + (page - 1) * 20)} key={index}>
                         <td>
                             {item.id}
                         </td>

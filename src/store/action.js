@@ -6,9 +6,10 @@ export const getData = (payload) => ({
     payload: payload
 });
 
-export const sortData = (field) => ({
+export const sortData = (field, reversed) => ({
     type: SORT_DATA,
-    field: field
+    field: field,
+    reversed
 });
 
 

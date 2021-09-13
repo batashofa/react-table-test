@@ -10,7 +10,7 @@ function App() {
     const data = useSelector((state) => state.data);
     const [id, setId] = useState(0);
     const [stateData, setStateData] = useState([]);
-    const states = [...new Set(data.reduce((arr, value)=>{
+    const states = [...new Set(stateData.reduce((arr, value)=>{
         arr = [...arr,value.adress.state];
         return arr;
     },[]))];
@@ -19,8 +19,6 @@ function App() {
         getUserData()
     }, [])
 
-    console.log(states)
-
     const getUserData = () => {
         fetch("https://itrex-react-lab-files.s3.eu-central-1.amazonaws.com/react-test-api.json")
             .then((res) => res.json())
@@ -28,17 +26,25 @@ function App() {
             .catch((error) => console.log(error));
     }
     const search = (e) => {
-        const filteredData = stateData.filter((item)=> Object.values(item).toString().includes(e.target.value))
+        const filteredData = stateData.filter((item)=> {
+            return Object.values(item).toString().includes(e.target.value);
+        })
         dispatch(getData(filteredData));
-
     }
+    const searchByState = (e) => {
+        const filteredData = stateData.filter((item)=> {
+            return item.adress.state === e.target.value;
+        })
+        dispatch(getData(filteredData));
+    }
+
 
     return (
         <div className="App">
             <h1>Table</h1>
             <form>
                 <input placeholder="Search" onChange={search} />
-                <select>
+                <select onChange={searchByState}>
                     {states.map((item)=> <option>{item}</option>)}
                 </select>
             </form>

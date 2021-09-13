@@ -24,9 +24,16 @@ th {
     padding: 10px 20px;
 }
 
-th::after {
+.arrowDown::after {
     border: 5px solid transparent;
     border-top: 10px solid white;
+    margin: 6px 5px;
+    content: "";
+    position: absolute;
+}
+.arrowUp::after {
+    border: 5px solid transparent;
+    border-bottom: 10px solid white;
     margin: 6px 5px;
     content: "";
     position: absolute;
