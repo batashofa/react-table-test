@@ -1,7 +1,5 @@
 import React from "react";
 import "./pagination.css";
-import { ReactComponent as Left } from "../../assets/svg/Left.svg";
-import { ReactComponent as Right } from "../../assets/svg/Right.svg";
 
 export default class Pagination extends React.Component {
   constructor(props) {
@@ -22,15 +20,13 @@ export default class Pagination extends React.Component {
     const numOfPages = Math.ceil(
       this.props.numOfElements / this.props.elementsPerPage
     );
-    let space = "...";
+    let space = "";
     for (let i = 0; i < paginationSize; i++) {
       let page = this.state.currentPage + i;
 
       if (this.state.currentPage + 2 >= numOfPages) {
-        page = numOfPages - 3 + i;
+        page = numOfPages - 2 + i;
         space = "";
-      } else {
-        space = "...";
       }
 
       if (page > 0) {
@@ -49,16 +45,6 @@ export default class Pagination extends React.Component {
     }
 
     buttonArray.push(space);
-
-    buttonArray.push(
-      <button
-        key={numOfPages}
-        className="pagination__button"
-        onClick={() => this.handleClick(numOfPages)}
-      >
-        {numOfPages}
-      </button>
-    );
     return buttonArray;
   }
 
@@ -70,22 +56,23 @@ export default class Pagination extends React.Component {
     }
   }
   onClickRight() {
-    if (this.state.currentPage >= 1) {
+    if (this.state.currentPage >= 1 && this.state.currentPage <=5) {
       return this.state.currentPage + 1;
+    } else {
+      return this.state.currentPage;
     }
   }
   textPaginationItems() {
     if (
       this.props.numOfElements !==
-      this.state.currentPage * this.props.elementsPerPage - 3
+        this.state.currentPage * this.props.elementsPerPage+1
     ) {
-      return `${this.state.currentPage * this.props.elementsPerPage - 3}-${this.state.currentPage * this.props.elementsPerPage >
+      return `${this.state.currentPage * this.props.elementsPerPage - 19}-${this.state.currentPage * this.props.elementsPerPage >
           this.props.numOfElements
           ? this.props.numOfElements
           : this.state.currentPage * this.props.elementsPerPage
         }`;
     }
-
     return this.props.numOfElements;
   }
 
@@ -97,11 +84,11 @@ export default class Pagination extends React.Component {
             {this.textPaginationItems()} of {this.props.numOfElements} items
           </li>
           <li className="pagination__list-left">
-            <Left onClick={() => this.handleClick(this.onClickLeft())} />
+            <b onClick={() => this.handleClick(this.onClickLeft())}>Previous</b>
           </li>
           <li>{this.getPaginationButtons()}</li>
-          <li className="pagination__list-left">
-            <Right onClick={() => this.handleClick(this.onClickRight())} />
+          <li className="pagination__list-right">
+            <b onClick={() => this.handleClick(this.onClickRight())}>Next</b>
           </li>
         </ul>
       </div>

@@ -1,75 +1,80 @@
 .pagination {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  width: 100%;
-  position: relative;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    position: relative;
+    max-width: 740px;
+    margin: auto;
 }
 
 .pagination__list {
-  color: #808080;
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  justify-content: flex-end;
-  align-items: center;
-  height: 25px;
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 21px;
+    color: #808080;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    justify-content: flex-end;
+    align-items: center;
+    height: 25px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
 }
 
 .pagination__list-left {
-  margin-top: 4px;
-  margin-left: 25px;
-  margin-right: 25px;
+    margin-left: 10px;
+    padding: 0 10px;
+    border: 1px solid #bcbdeb73;
+    border-radius: 3px;
 }
+.pagination__list-right {
+    border: 1px solid #bcbdeb73;
+    border-radius: 3px;
+    padding: 0 10px;
+}
+
 .pagination__button {
-  border: none;
-  height: 25px;
-  width: 21px;
-  padding: 0;
-  border-radius: 3px;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 21px;
-  background-color: white;
-  margin-left: 10px;
-  margin-right: 10px;
+    border: none;
+    width: 30px;
+    padding: 0;
+    border: 1px solid #bcbdeb73;
+    border-radius: 3px;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
 }
 
 .pagination__button,
 .pagination__list-left,
 .pagination__list-right:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .pagination__button-active {
-  background: #bcbdeb73;
-  color: black;
+    background: #bcbdeb73;
+    color: black;
 }
 
 @media (max-width: 480px) {
-  .pagination__list {
-    flex-wrap: wrap;
-    padding: 0;
-    font-size: 12px;
-    font-weight: 200;
-    line-height: 21px;
-    justify-content: center;
-  }
-  
-  .pagination__list-left {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
+    .pagination__list {
+        flex-wrap: wrap;
+        padding: 0;
+        font-size: 12px;
+        font-weight: 200;
+        line-height: 21px;
+        justify-content: center;
+    }
 
-  .pagination__button {
-    font-size: 12px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
+    .pagination__list-left {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .pagination__button {
+        font-size: 12px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
 
 

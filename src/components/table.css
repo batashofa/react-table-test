@@ -1,4 +1,5 @@
 table {
+    min-width: 740px;
     padding: 20px 0;
     margin: 0 auto;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -7,40 +8,71 @@ table {
     border-spacing: 0;
     text-align: center;
 }
+
+#id:hover,
+#firstName:hover,
+#lastName:hover,
+#email:hover,
+#phone:hover,
+#adress:hover {
+    background: #bcbdeb;
+}
 th {
-    background:#bcbdeb73;
+    background: #bcbdeb73;
     color: white;
     text-shadow: 0 1px 3px #2D2020;
     padding: 10px 20px;
 }
-th:hover{
+
+th::after {
+    border: 5px solid transparent;
+    border-top: 10px solid white;
+    margin: 6px 5px;
+    content: "";
+    position: absolute;
+}
+
+th:hover {
     cursor: pointer;
 }
+
 th, td {
     border-style: solid;
     border-width: 0 1px 1px 0;
     border-color: white;
 }
+
 th:first-child, td:first-child {
     text-align: left;
 }
+
 th:first-child {
     border-top-left-radius: 10px;
 }
+
 th:last-child {
     border-top-right-radius: 10px;
     border-right: none;
 }
+
 td {
     padding: 10px 20px;
     background: #f8e39196;
 }
+
+.tr-info:hover {
+    cursor: pointer;
+    background: #61dafb;
+}
+
 tr:last-child td:first-child {
     border-radius: 0 0 0 10px;
 }
+
 tr:last-child td:last-child {
     border-radius: 0 0 10px 0;
 }
+
 tr td:last-child {
     border-right: none;
 }

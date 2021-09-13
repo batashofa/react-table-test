@@ -18,7 +18,7 @@ const Table = ({id}) => {
     return (<>
             <table className="table">
                 <tr onClick={(e)=>dispatch(sortData(e.target.id))}>
-                    <th  id="id">
+                    <th id="id">
                         id
                     </th>
                     <th id="firstName">
@@ -37,9 +37,8 @@ const Table = ({id}) => {
                         State
                     </th>
                 </tr>
-
                 {dataPerPage(page).map((item, index) =>
-                    <tr onClick={()=>id(index)} key={index}>
+                    <tr className="tr-info" onClick={()=>id(index)} key={index}>
                         <td>
                             {item.id}
                         </td>
@@ -60,7 +59,6 @@ const Table = ({id}) => {
                         </td>
                     </tr>
                 )}
-
 
             </table>
             <Pagination

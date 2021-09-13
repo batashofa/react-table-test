@@ -35,13 +35,25 @@ function App() {
 
     return (
         <div className="App">
-            <input onChange={search}/>
-            <select>
-                {states.map((item)=> <option>{item}</option>)}
+            <h1>Table</h1>
+            <form>
+                <input placeholder="Search" onChange={search} />
+                <select>
+                    {states.map((item)=> <option>{item}</option>)}
+                </select>
+            </form>
 
-            </select>
+
             <Table id={(index)=>setId(index)}/>
-            <div><span>Selected profile: </span>{data[id]?.firstName} {data[id]?.lastName}</div>
+            <div className="info">
+                <b>Profile info:</b>
+                <div><span>Selected profile: </span>{data[id]?.firstName} {data[id]?.lastName}</div>
+                <div><span>Desctiption: </span>{data[id]?.description}</div>
+                <div><span>Address: </span>{data[id]?.adress.streetAddress} </div>
+                <div><span>City: </span>{data[id]?.adress.city}</div>
+                <div><span>State: </span>{data[id]?.adress.state}</div>
+                <div><span>Index: </span>{data[id]?.adress.zip}</div>
+            </div>
         </div>
     );
 }

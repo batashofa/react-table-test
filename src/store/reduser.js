@@ -1,4 +1,4 @@
-import {FILTER_DATA, GET_DATA, SORT_DATA} from "./action";
+import {GET_DATA, SORT_DATA} from "./action";
 
 const initialState = {
     data: []

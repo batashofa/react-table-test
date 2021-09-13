@@ -1,38 +1,85 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+h1 {
+    text-shadow: 0 1px 6px #2d2020;
+    color: white;
+}
+
+form {
+    width: 740px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+form input,
+form select {
+    border: 2px solid #bcbdeb73;
+    border-radius: 5px;
+}
+
+form input:hover,
+form input:focus-visible {
+    border: 2px solid #bcbdeb;
+}
+
+form input[placeholder] {
+    text-overflow: ellipsis;
+    padding: 0 20px;
+}
+
+form input[placeholder]:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+.info {
+    margin: 20px auto;
+    max-width: 740px;
+    border: 2px solid #bcbdeb73;
+    border-radius: 10px;
+}
+
+.info div {
+    margin: 10px 0;
+}
+
+.info div span {
+    text-shadow: 0 1px 3px #2d2020;
 }
