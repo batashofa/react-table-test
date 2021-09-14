@@ -1,6 +1,6 @@
-table {
+.table {
     min-width: 740px;
-    padding: 20px 0;
+    padding: 20px;
     margin: 0 auto;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 14px;
@@ -34,7 +34,7 @@ th {
 .arrowUp::after {
     border: 5px solid transparent;
     border-bottom: 10px solid white;
-    margin: 6px 5px;
+    margin: 0 5px;
     content: "";
     position: absolute;
 }
@@ -62,12 +62,16 @@ th:last-child {
     border-right: none;
 }
 
-td {
+.td-info {
     padding: 10px 20px;
     background: #f8e39196;
 }
 
 .tr-info:hover {
+    cursor: pointer;
+    background: #61dafb;
+}
+.tr-info:active {
     cursor: pointer;
     background: #61dafb;
 }

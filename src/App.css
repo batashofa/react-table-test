@@ -2,84 +2,62 @@
     text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
         animation: App-logo-spin infinite 20s linear;
     }
 }
 
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-h1 {
+.heading {
     text-shadow: 0 1px 6px #2d2020;
     color: white;
+    min-width: 740px;
 }
 
-form {
+.form {
     width: 740px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
-form input,
-form select {
+.form__search,
+.form__filter {
     border: 2px solid #bcbdeb73;
     border-radius: 5px;
 }
 
-form input:hover,
-form input:focus-visible {
+.form__search:hover,
+.form__search:focus-visible {
     border: 2px solid #bcbdeb;
 }
 
-form input[placeholder] {
+.form__search[placeholder] {
     text-overflow: ellipsis;
     padding: 0 20px;
 }
 
-form input[placeholder]:focus::-webkit-input-placeholder {
+.form__search[placeholder]:focus::-webkit-input-placeholder {
     color: transparent
 }
 
+.form__filter{
+    width: 100px;
+}
+.info__wrapper{
+    width: 740px;
+    margin: 0 auto;
+}
 .info {
-    margin: 20px auto;
-    max-width: 740px;
+    margin: 20px 0;
     border: 2px solid #bcbdeb73;
     border-radius: 10px;
 }
 
-.info div {
+.info__text{
     margin: 10px 0;
 }
 
-.info div span {
+.info__text span {
     text-shadow: 0 1px 3px #2d2020;
 }

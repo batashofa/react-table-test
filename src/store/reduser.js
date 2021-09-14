@@ -4,11 +4,10 @@ const initialState = {
     data: []
 }
 
-
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_DATA: {
-            return {data:  action.payload};
+            return {data: action.payload};
         }
         case SORT_DATA: {
             const data = [...state.data];
@@ -25,8 +24,8 @@ const reducer = (state = initialState, action) => {
                 data: data
             };
         }
-
-        default: return state;
+        default:
+            return state;
     }
 };
 

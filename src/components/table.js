@@ -28,45 +28,44 @@ const Table = ({id}) => {
                     <th id="id" className={!reversed ? "arrowDown" : "arrowUp"}>
                         id
                     </th>
-                    <th id="firstName">
+                    <th id="firstName" className={!reversed ? "arrowDown" : "arrowUp"}>
                         First name
                     </th>
-                    <th id="lastName">
+                    <th id="lastName" className={!reversed ? "arrowDown" : "arrowUp"}>
                         Last name
                     </th>
-                    <th id="email">
+                    <th id="email" className={!reversed ? "arrowDown" : "arrowUp"}>
                         Email
                     </th>
-                    <th id="phone">
+                    <th id="phone" className={!reversed ? "arrowDown" : "arrowUp"}>
                         Phone
                     </th>
-                    <th id="adress">
+                    <th id="adress" className={!reversed ? "arrowDown" : "arrowUp"}>
                         State
                     </th>
                 </tr>
                 {dataPerPage(page).map((item, index) =>
                     <tr className="tr-info" onClick={() => id(index + (page - 1) * 20)} key={index}>
-                        <td>
+                        <td className="td-info">
                             {item.id}
                         </td>
-                        <td>
+                        <td className="td-info">
                             {item.firstName}
                         </td>
-                        <td>
+                        <td className="td-info">
                             {item.lastName}
                         </td>
-                        <td>
+                        <td className="td-info">
                             {item.email}
                         </td>
-                        <td>
+                        <td className="td-info">
                             {item.phone}
                         </td>
-                        <td>
+                        <td className="td-info">
                             {item.adress.state}
                         </td>
                     </tr>
                 )}
-
             </table>
             <Pagination
                 currentPage={(page) => setPage(page)}

@@ -1,7 +1,7 @@
 .pagination {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     position: relative;
-    max-width: 740px;
+    width: 740px;
     margin: auto;
 }
 
@@ -55,26 +55,6 @@
     color: black;
 }
 
-@media (max-width: 480px) {
-    .pagination__list {
-        flex-wrap: wrap;
-        padding: 0;
-        font-size: 12px;
-        font-weight: 200;
-        line-height: 21px;
-        justify-content: center;
-    }
 
-    .pagination__list-left {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .pagination__button {
-        font-size: 12px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-}
 
 
