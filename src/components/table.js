@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./table.css"
 import {useDispatch, useSelector} from "react-redux";
 import {sortData} from "../store/action";
@@ -9,38 +9,48 @@ const Table = ({id}) => {
     const [page, setPage] = useState(1);
     const [reversed, setReversed] = useState(false);
     const data = useSelector((state) => state.data);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        setPage(1)
+    }, [data])
 
     const dataPerPage = (page) => {
         return data?.slice((page - 1) * 20, (page - 1) * 20 + 20);
     }
 
+    const onClickSort = (e) => {
+        setReversed(!reversed);
+        if (e.target.className === "arrowUp") {
+            e.target.className = "arrowDown"
+        } else {
+            e.target.parentNode.childNodes.forEach(item => item.className = "arrowDown");
+            e.target.className = "arrowUp";
+        }
+        dispatch(sortData(e.target.id, reversed))
+    }
+
     return (
         <>
             <table className="table">
-                <tr onClick={(e) => {
-                    setReversed(!reversed);
-                    dispatch(sortData(e.target.id, reversed))
-                }
-                }
+                <tr onClick={onClickSort}
                 >
-                    <th id="id" className={!reversed ? "arrowDown" : "arrowUp"}>
+                    <th id="id" className={"arrowDown"}>
                         id
                     </th>
-                    <th id="firstName" className={!reversed ? "arrowDown" : "arrowUp"}>
+                    <th id="firstName" className={"arrowDown"}>
                         First name
                     </th>
-                    <th id="lastName" className={!reversed ? "arrowDown" : "arrowUp"}>
+                    <th id="lastName" className={"arrowDown"}>
                         Last name
                     </th>
-                    <th id="email" className={!reversed ? "arrowDown" : "arrowUp"}>
+                    <th id="email" className={"arrowDown"}>
                         Email
                     </th>
-                    <th id="phone" className={!reversed ? "arrowDown" : "arrowUp"}>
+                    <th id="phone" className={"arrowDown"}>
                         Phone
                     </th>
-                    <th id="adress" className={!reversed ? "arrowDown" : "arrowUp"}>
+                    <th id="adress" className={"arrowDown"}>
                         State
                     </th>
                 </tr>

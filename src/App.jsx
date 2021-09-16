@@ -9,6 +9,7 @@ function App() {
     const dispatch = useDispatch()
     const data = useSelector((state) => state.data);
     const [id, setId] = useState(0);
+    const [searchText, setSearchText] = useState("");
     const [stateData, setStateData] = useState([]);
     const states = [...new Set(stateData.reduce((arr, value) => {
         arr = [...arr, value.adress.state];
@@ -29,24 +30,25 @@ function App() {
             .catch((error) => console.log(error));
     }
     const search = (e) => {
+        setSearchText(e.target.value);
         const filteredData = stateData.filter((item) => {
-            return Object.values(item).toString().includes(e.target.value);
+            return Object.values(item).toString().toLowerCase().includes(e.target.value.toLowerCase());
         })
         dispatch(getData(filteredData));
     }
     const searchByState = (e) => {
+        setSearchText("")
         const filteredData = stateData.filter((item) => {
             return item.adress.state === e.target.value;
         })
         dispatch(getData(filteredData));
     }
 
-
     return (
         <div className="App">
             <h1 className="heading">Table</h1>
             <div className="form">
-                <input className="form__search" placeholder="Search" onChange={search}/>
+                <input className="form__search" value={searchText} placeholder="Search" onChange={search}/>
                 <select className="form__filter" onChange={searchByState}>
                     {states.map((item) => <option>{item}</option>)}
                 </select>
